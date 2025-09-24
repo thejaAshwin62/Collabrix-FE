@@ -1,3 +1,4 @@
+
 # Collabrix Frontend
 
 A modern, real-time collaborative document editing platform built with React, Vite, and cutting-edge web technologies. This frontend provides an intuitive user interface for seamless document collaboration with real-time editing, presence awareness, and advanced sharing capabilities.
