@@ -11,6 +11,8 @@ import { WebsocketProvider } from "y-websocket";
 import { IndexeddbPersistence } from "y-indexeddb";
 import "./CollaborativeEditor.css";
 
+const BASE_URL = import.meta.env.VITE_WS_URL;
+
 export default function CollaborativeEditor({
   docId,
   token,
@@ -43,7 +45,7 @@ export default function CollaborativeEditor({
     const persistence = new IndexeddbPersistence(docId, ydoc);
 
     // Initialize WebSocket provider with authentication
-    const wsUrl = "ws://localhost:5000"; // Using port 5000 as per .env
+    const wsUrl = BASE_URL; // Using port 5000 as per .env
     const wsProvider = new WebsocketProvider(wsUrl, docId, ydoc, {
       params: { token },
     });

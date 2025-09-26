@@ -25,6 +25,8 @@ import AnimatedButton from "../components/AnimatedButton";
 import { useAuth } from "../context/AuthContext";
 import { documentAPI } from "../utils/documentAPI";
 
+const BASE_URL = import.meta.env.VITE_WS_URL;
+
 const Editor = () => {
   const { docId } = useParams();
   const navigate = useNavigate();
@@ -99,7 +101,7 @@ const Editor = () => {
 
     const connectWebSocket = () => {
       const token = localStorage.getItem("authToken");
-      const wsUrl = `ws://localhost:5000/${docId}?token=${token}`;
+      const wsUrl = `${BASE_URL}/${docId}?token=${token}`;
 
       try {
         wsRef.current = new WebSocket(wsUrl);

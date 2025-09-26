@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 export const customFetch = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: BASE_URL + "/api/v1",
 });
 
 // Add request interceptor to include auth token

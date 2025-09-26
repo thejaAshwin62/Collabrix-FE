@@ -23,6 +23,8 @@ import CollaborativeEditor from "../components/CollaborativeEditor";
 import { useAuth } from "../context/AuthContext";
 import { documentAPI } from "../utils/documentAPI";
 
+const BASE_URL = import.meta.env.VITE_WS_URL;
+
 const Editor = () => {
   const { docId } = useParams();
   const navigate = useNavigate();
@@ -191,9 +193,7 @@ const Editor = () => {
 
     const connectWebSocket = () => {
       try {
-        const wsUrl = `ws://localhost:5000/${docId}?token=${encodeURIComponent(
-          token
-        )}`;
+        const wsUrl = `${BASE_URL}/${docId}?token=${encodeURIComponent(token)}`;
         console.log("Connecting to WebSocket:", wsUrl);
 
         ws = new WebSocket(wsUrl);
